@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Home / Inbox</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body data-page="home">
+    <header class="topbar">
+        <div class="brand">AI Assistant</div>
+        <nav class="nav">
+            <a href="inbox.html" class="navlink active">Inbox</a>
+            <a href="chat.html" class="navlink">Chat</a>
+            <a href="expenses.html" class="navlink">Expenses</a>
+            <a href="documents.html" class="navlink">Documents</a>
+            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h1 class="card-title" style="margin:0;">Inbox</h1>
+                    <p class="card-subtitle">Upload a receipt/document. Items will be processed into Expenses or
+                        Documents.</p>
+                </div>
+
+                <div class="card-actions">
+                    <button id="refreshBtn" class="btn btn-secondary" type="button">Refresh</button>
+                    <button id="processBtn" class="btn btn-secondary" type="button">Process Inbox</button>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label class="muted" for="fileInput">Receipt / Document image</label>
+                    <input id="fileInput" class="input" type="file" accept="image/*" />
+                </div>
+
+                <div>
+                    <label class="muted">&nbsp;</label>
+                    <button id="uploadBtn" class="btn btn-primary" type="button" style="width:100%;">Upload</button>
+                    <div id="uploadMsg" class="muted" style="margin-top:10px;"></div>
+                    <div id="processMsg" class="muted" style="margin-top:6px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="height:14px;"></div>
+
+        <!-- This is what inbox.js expects -->
+        <div id="inboxList"></div>
+
+        <!-- Modal expected by openModal/closeModal in common.js (if you use it) -->
+        <div id="modalBackdrop" class="hidden" style="
+      position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+      display:flex; align-items:center; justify-content:center;
+      padding: 1rem; z-index: 9999;">
+            <div class="card" style="max-width: 900px; width: 100%;">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title" id="modalTitle">Preview</div>
+                        <div class="card-subtitle">Signed URL preview</div>
+                    </div>
+                    <button id="modalClose" class="btn btn-secondary" type="button">Close</button>
+                </div>
+                <div>
+                    <img id="modalImg" alt="preview"
+                        style="width:100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);" />
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/inbox.js"></script>
+</body>
+
+</html>

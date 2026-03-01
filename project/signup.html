@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign up</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="signup">
+  <header class="topbar">
+    <div class="brand">AI Assistant</div>
+    <nav class="nav">
+      <a href="signin.html" class="navlink">Sign in</a>
+      <a href="signup.html" class="navlink active">Sign up</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Create account</h1>
+
+    <div class="card">
+      <label class="label">Email</label>
+      <input id="email" class="input" type="email" placeholder="you@example.com" />
+
+      <label class="label">Password</label>
+      <input id="password" class="input" type="password" placeholder="Min 6 chars" />
+
+      <button id="signupBtn" class="btn">Sign up</button>
+      <div id="authMsg" class="muted" style="margin-top:10px;"></div>
+
+      <div class="muted" style="margin-top:14px;">
+        Already have an account? <a href="signin.html">Sign in</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

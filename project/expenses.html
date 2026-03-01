@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Expenses</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body data-page="expenses">
+    <header class="topbar">
+        <div class="brand">AI Assistant</div>
+        <nav class="nav">
+           <a href="inbox.html" class="navlink active">Inbox</a>
+            <a href="chat.html" class="navlink">Chat</a>
+            <a href="expenses.html" class="navlink">Expenses</a>
+            <a href="documents.html" class="navlink">Documents</a>
+            <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Expenses</h1>
+
+        <section class="card">
+            <div class="row">
+                <div>
+                    <div class="label">Month (YYYY-MM)</div>
+                    <input id="monthFilter" class="input" type="month" />
+                </div>
+
+                <div>
+                    <div class="label">Category</div>
+                    <select id="categoryFilter" class="input">
+                        <option value="">All</option>
+                        <option>Food</option>
+                        <option>Utilities</option>
+                        <option>Transport</option>
+                        <option>Health</option>
+                        <option>Shopping</option>
+                        <option>Entertainment</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="row" style="align-items:flex-end;">
+                    <button id="applyFilters" class="btn">Apply</button>
+                    <button id="clearFilters" class="btn btn-secondary">Clear</button>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:12px; justify-content:space-between;">
+                <div class="muted">Showing up to 200 rows</div>
+                <div><strong>Total:</strong> <span id="totalValue">—</span></div>
+            </div>
+
+            <div class="tableWrap" style="margin-top:10px;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expensesBody">
+                        <tr>
+                            <td colspan="5" class="muted">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/expenses.js"></script>
+</body>
+
+</html>

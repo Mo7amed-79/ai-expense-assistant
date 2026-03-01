@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body data-page="chat">
+    <header class="topbar">
+        <div class="brand">AI Assistant</div>
+        <nav class="nav">
+           <a href="inbox.html" class="navlink active">Inbox</a>
+            <a href="chat.html" class="navlink">Chat</a>
+            <a href="expenses.html" class="navlink">Expenses</a>
+            <a href="documents.html" class="navlink">Documents</a>
+            <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Chat</h1>
+
+        <section class="card">
+            <div id="chatHint" class="muted"></div>
+
+            <div id="chatLog"></div>
+
+            <div class="row" style="margin-top:10px;">
+                <textarea id="chatInput" class="input" rows="2"
+                    placeholder="e.g. Add 50 EGP groceries today"></textarea>
+                <button id="chatSend" class="btn">Send</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+
+</html>

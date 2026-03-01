@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AI Assistant • Sign in</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">AI Assistant</div>
+            <div class="nav">
+                <a href="signin.html" class="navlink active">Sign in</a>
+                <a href="signup.html" class="navlink">Create account</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-wrap">
+        <div class="card auth-card">
+            <div class="card-header">
+                <div>
+                    <h1 class="auth-title">Welcome back</h1>
+                    <p class="auth-desc">Sign in to manage expenses, documents, and chat.</p>
+                </div>
+            </div>
+
+            <form id="signinForm" onsubmit="event.preventDefault(); login();">
+                <label class="muted" for="email">Email</label>
+                <input class="input" id="email" name="email" type="email" placeholder="name@example.com"
+                    autocomplete="email" required />
+
+                <div style="height:12px"></div>
+
+                <label class="muted" for="password">Password</label>
+                <input class="input" id="password" name="password" type="password" placeholder="••••••••"
+                    autocomplete="current-password" required />
+
+                <div class="form-actions">
+                    <button class="btn btn-primary" id="loginBtn" type="submit">Sign in</button>
+                    <a class="btn btn-secondary" href="signup.html" role="button">Create account</a>
+                </div>
+
+                <div class="hr"></div>
+
+                <p class="muted" style="margin:0; font-size:0.92rem;">
+                    By signing in, you agree to your organization’s policies.
+                </p>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/inbox.js"></script>
+</body>
+
+</html>

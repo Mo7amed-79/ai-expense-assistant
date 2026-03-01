@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Documents</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body data-page="documents">
+    <header class="topbar">
+        <div class="brand">AI Assistant</div>
+        <nav class="nav">
+            <a href="inbox.html" class="navlink active">Inbox</a>
+            <a href="chat.html" class="navlink">Chat</a>
+            <a href="expenses.html" class="navlink">Expenses</a>
+            <a href="documents.html" class="navlink">Documents</a>
+            <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Documents</h1>
+
+        <section class="card">
+            <div class="row" style="justify-content:space-between;">
+                <div class="row">
+                    <button id="refreshDocuments" class="btn">Refresh</button>
+                    <label class="muted" style="display:flex;gap:8px;align-items:center;">
+                        <input type="checkbox" id="toggleFields" checked />
+                        Show extracted fields
+                    </label>
+                </div>
+                <div class="muted">Showing up to 200 rows</div>
+            </div>
+
+            <div class="tableWrap" style="margin-top:10px;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Created</th>
+                            <th>Extracted text</th>
+                            <th>Extracted fields</th>
+                        </tr>
+                    </thead>
+                    <tbody id="documentsBody">
+                        <tr>
+                            <td colspan="5" class="muted">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/documents.js"></script>
+</body>
+
+</html>
